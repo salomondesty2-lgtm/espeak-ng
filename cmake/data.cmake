@@ -10,7 +10,7 @@ list(APPEND _dict_compile_list
   ia id io is it
   ja jbo
   ka kk kl kn kok ko ku ky
-  la lb lfn lt lv
+  la lb lfn lij lt lv
   mi mk ml mn mr ms mto mt my
   nci ne nl nog no
   om or
