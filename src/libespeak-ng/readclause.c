@@ -188,7 +188,7 @@ static const char *LookupSpecial(Translator *tr, const char *string, char *text_
 	char *string1 = (char *)string;
 
 	flags[0] = flags[1] = 0;
-	if (LookupDictList(tr, &string1, phonemes, flags, 0, NULL)) {
+	if (LookupDictList(tr, &string1, phonemes, flags, 0, NULL, 0)) {
 		DecodeWithPhonemeMode(text_out, phonemes, tr, NULL, flags);
 		return text_out;
 	}
@@ -217,15 +217,15 @@ static const char *LookupCharName(char buf[60], Translator *tr, int c, bool only
 
 	if (only == true) {
 		string = &single_letter[2];
-		LookupDictList(tr, &string, phonemes, flags, 0, NULL);
+		LookupDictList(tr, &string, phonemes, flags, 0, NULL, 0);
 	}
 
 	if (only == false) {
 		string = &single_letter[1];
-		if (LookupDictList(tr, &string, phonemes, flags, 0, NULL) == 0) {
+		if (LookupDictList(tr, &string, phonemes, flags, 0, NULL, 0) == 0) {
 			// try _* then *
 			string = &single_letter[2];
-			if (LookupDictList(tr, &string, phonemes, flags, 0, NULL) == 0) {
+			if (LookupDictList(tr, &string, phonemes, flags, 0, NULL, 0) == 0) {
 				// now try the rules
 				single_letter[1] = ' ';
 				TranslateRules(tr, &single_letter[2], phonemes, sizeof(phonemes), NULL, 0, NULL);
@@ -237,9 +237,9 @@ static const char *LookupCharName(char buf[60], Translator *tr, int c, bool only
     		SetTranslator2(ESPEAKNG_DEFAULT_VOICE);
     		string = &single_letter[1];
     		single_letter[1] = '_';
-    		if (LookupDictList(translator2, &string, phonemes, flags, 0, NULL) == 0) {
+			if (LookupDictList(translator2, &string, phonemes, flags, 0, NULL, 0) == 0) {
     			string = &single_letter[2];
-    			LookupDictList(translator2, &string, phonemes, flags, 0, NULL);
+				LookupDictList(translator2, &string, phonemes, flags, 0, NULL, 0);
     		}
     		if (phonemes[0])
     			lang_name = ESPEAKNG_DEFAULT_VOICE;
