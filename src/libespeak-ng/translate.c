@@ -1217,7 +1217,19 @@ void TranslateClauseWithTerminator(Translator *tr, int *tone_out, char **voice_c
 
 			if (IsAlpha(c)) {
 				alpha_count++;
-				if (!IsAlpha(prev_out) || (tr->langopts.ideographs && ((c > 0x3040) || (prev_out > 0x3040))) || (IsEmoji(c) != IsEmoji(prev_out))) {
+				// Start a new word where an adjacent letter belongs to a script
+				// that is foreign to the base language (e.g. Latin glued to
+				// Malayalam, as in "BJPയുമായുള്ള"), so each run is translated in
+				// its own language rather than the whole token being spelled out
+				// letter by letter. Comparing foreign-ness to the base language
+				// (rather than raw alphabet identity) keeps the language's own
+				// script joined, including ranges outside the alphabet table such
+				// as Greek Extended.
+				const ALPHABET *alpha_c = AlphabetFromChar(c);
+				const ALPHABET *alpha_prev = AlphabetFromChar(prev_out);
+				bool c_foreign = (alpha_c != NULL) && (alpha_c->offset != tr->letter_bits_offset);
+				bool prev_foreign = (alpha_prev != NULL) && (alpha_prev->offset != tr->letter_bits_offset);
+				if (!IsAlpha(prev_out) || (tr->langopts.ideographs && ((c > 0x3040) || (prev_out > 0x3040))) || (IsEmoji(c) != IsEmoji(prev_out)) || (c_foreign != prev_foreign)) {
 					if (wcschr(tr->punct_within_word, prev_out) == 0)
 						letter_count = 0; // don't reset count for an apostrophy within a word
 
