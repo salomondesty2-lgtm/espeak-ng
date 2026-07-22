@@ -67,7 +67,7 @@ static const ALPHABET alphabets[] = {
 	{ "_cyr",   OFFSET_CYRILLIC, 0x400, 0x52f,  0, 0 },
 	{ "_hy",    OFFSET_ARMENIAN, 0x530, 0x58f,  L('h', 'y'), AL_WORDS },
 	{ "_he",    OFFSET_HEBREW,   0x590, 0x5ff,  L('h', 'e'), 0 },
-	{ "_ar",    OFFSET_ARABIC,   0x600, 0x6ff,  0, 0 },
+	{ "_ar",    OFFSET_ARABIC,   0x600, 0x6ff,  L('a', 'r'), AL_WORDS },
 	{ "_syc",   OFFSET_SYRIAC,   0x700, 0x74f,  0, 0 },
 	{ "_hi",    OFFSET_DEVANAGARI, 0x900, 0x97f, L('h', 'i'), AL_WORDS },
 	{ "_bn",    OFFSET_BENGALI,  0x0980, 0x9ff, L('b', 'n'), AL_WORDS },
