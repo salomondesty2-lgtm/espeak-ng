@@ -47,7 +47,7 @@ android {
 
         externalNativeBuild {
             cmake {
-                arguments "-DUSE_ASYNC:BOOL=OFF", "-DUSE_MBROLA:BOOL=OFF"
+                arguments "-DUSE_ASYNC:BOOL=OFF", "-DUSE_MBROLA:BOOL=OFF", "-DUSE_LIBSONIC:BOOL=ON"
                 targets "ttsespeak", "espeak-data"
             }
         }
