@@ -1816,7 +1816,7 @@ include ph_swedish
 phonemetable sw base1
 include ph_swahili
 
-phonemetable bof base1
+phonemetable bof base2
 include ph_bof
 
 phonemetable ti base1

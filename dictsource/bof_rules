@@ -1,5 +1,6 @@
-// Bété pronunciation rules
-// Letter-to-phoneme rules for Bété (Daloa)
+// Bété (Daloa) pronunciation rules
+// Letter-to-phoneme rules based on verified corpus data
+// Orthographic conventions → eSpeak phonemes
 
 .L01 a e i o u
 
@@ -8,9 +9,16 @@
 
 .group b
         b        b
+        bh       b_
+
+.group c
+        cu       tSu
+        c        k
 
 .group d
         d        d
+        dl       dl
+        dZ       dZ
 
 .group e
         e        e
@@ -20,14 +28,24 @@
 
 .group g
         g        g
-        gh       g
+        gb       gb
+        gh       Q
+        gl       gl
+        gw       gw
+
+.group h
+        h        h
 
 .group i
         i        i
 
+.group j
+        j        dZ
+
 .group k
         k        k
         kp       kp
+        kw       kw
 
 .group l
         l        l
@@ -37,18 +55,22 @@
 
 .group n
         n        n
+        ng       Ng
+        ny       n^
 
 .group o
         o        o
 
 .group p
         p        p
+        pl       pl
 
 .group r
         r        r
 
 .group s
         s        s
+        sl       sl
 
 .group t
         t        t
@@ -61,12 +83,41 @@
 
 .group w
         w        w
+        wl       wl
 
 .group y
         y        j
+        yl       jl
 
 .group z
         z        z
 
+.group '
+        '        ?
+
 .group -
         -        _-
+
+.group ɛ
+        ɛ        E
+
+.group ɔ
+        ɔ        O
+
+.group ɩ
+        ɩ        i
+
+.group ʋ
+        ʋ        u
+
+.group ö
+        ö        o
+
+.group ë
+        ë        e
+
+.group ï
+        ï        i
+
+.group ä
+        ä        a
