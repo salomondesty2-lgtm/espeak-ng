@@ -1,0 +1,76 @@
+
+//====================================================
+//  Bété (bof)
+//====================================================
+
+// Vowels
+
+phoneme a
+  vwl starttype #a endtype #a
+  length 210
+  FMT(vowel/a_5)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 210
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 200
+  FMT(vowel/i)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 210
+  FMT(vowel/o_4)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 200
+  FMT(vowel/u_bck2)
+endphoneme
+
+phoneme E
+  vwl starttype #e endtype #e
+  ipa ɛ
+  length 210
+  FMT(vowel/ee_2)
+endphoneme
+
+phoneme O
+  vwl starttype #o endtype #o
+  ipa ɔ
+  length 210
+  FMT(vowel/oo_4)
+endphoneme
+
+phoneme @
+  vwl starttype #@ endtype #@
+  ipa ə
+  length 160
+  FMT(vowel/@)
+endphoneme
+
+
+// Consonants
+
+phoneme kp
+  vls blb stp
+  lengthmod 2
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
+  WAV(ustop/p)
+endphoneme
+
+phoneme N
+  import_phoneme base1/N
+endphoneme
+
+phoneme n^
+  import_phoneme base1/n^
+endphoneme
